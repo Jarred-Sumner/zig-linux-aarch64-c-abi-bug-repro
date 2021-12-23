@@ -11,8 +11,8 @@ extern fn gimme_no_ptr(ZigString) ZigString;
 pub fn main() anyerror!void {
     const real: []const u8 = "hello";
     var str = ZigString{ .ptr = real.ptr, .len = real.len };
-    var works = gimme(null, str);
-    var fails = gimme_no_ptr(str);
+    var fails = gimme(null, str);
+    var works = gimme_no_ptr(str);
 
     std.debug.assert(std.mem.eql(u8, real, str.ptr[0..str.len]));
 
